@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+    int main(void)
+    {
+        int t;
+        cin>>t;
+        while(t--)
+        {
+        long long int n,count=1;
+        cin>>n;
+        long long int a[n],minu;
+        for(long long int i=0;i<n;i++)
+        {
+            cin>>a[i];
+            if(i==0)
+            {
+                 minu=a[i];
+            }
+            else if(a[i]<=minu)
+            {
+                count++;
+                minu=a[i];
+            }
+        }
+        cout<<count<<endl;
+    }
+    }
