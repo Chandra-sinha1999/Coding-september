@@ -1,0 +1,100 @@
+#include<iostream>
+#define ll long long
+using namespace std;
+/*void fibonaaci(ll *d,ll n)
+{
+    d[1]=0;
+    d[2]=1;
+    for(ll i=3;i<=n;i++)
+    {
+        ll res=d[i-1]+d[i-2];
+        res=res%10;
+        d[i]=res;
+    }
+}
+void compute(ll *d,ll n)
+{
+        //base case
+        if(n==1)
+        {
+            cout<<d[1]<<endl;
+            return;
+        }
+        for(ll i=1;i<=(n/2);i++)
+        {
+            d[i]=d[i*2];
+        }
+        compute(d,n/2);
+}
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+    ll n;
+    cin>>n;
+    ll d[n];
+    fibonaaci(d,n);
+    compute(d,n);
+    }
+}*/
+ll poweroftwo(ll n)
+{
+    ll res=1;
+    for(ll i=1;i<=n;i++)
+    {
+        res=res*2;
+    }
+    return res;
+}
+ll lessthan(ll n)
+{
+    ll i=1;
+    while(1)
+    {
+        if(n<poweroftwo(i))
+        {
+            return i-1;
+        }
+        i++;
+    }
+}
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+    ll n;
+    cin>>n;
+    if(n==1)
+    {
+        cout<<"0"<<endl;
+    }
+    else if(n==2||n==3)
+    {
+        cout<<"1"<<endl;
+    }
+    else
+    {
+    ll res=lessthan(n);
+    if(res%4==2)
+    {
+        cout<<"2"<<endl;
+    }
+    else if(res%4==3)
+    {
+        cout<<"3"<<endl;
+    }
+    else if(res%4==0)
+    {
+        cout<<"0"<<endl;
+    }
+    else if(res%4==1)
+    {
+        cout<<"9"<<endl;
+    }
+    }
+    }
+}
