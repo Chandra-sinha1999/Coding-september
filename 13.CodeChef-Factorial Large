@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+#define MAX 500
+int multiply(int a[],int n,int a_size)
+{
+    int rem=0;
+    for(int i=0;i<a_size;i++)
+    {
+        int prod=a[i]*n+rem;
+        a[i]=prod%10;
+        rem=prod/10;
+    }
+   while (rem)
+    {
+        a[a_size] = rem%10;
+        rem = rem/10;
+        a_size++;
+    }
+    return a_size;
+}
+void fact(int n)
+{
+    int a[MAX];
+    a[0]=1;
+    int a_size=1;
+    for(int i=2;i<=n;i++)
+        a_size=multiply(a,i,a_size);
+    for(int i=a_size-1;i>=0;i--)
+        cout<<a[i];
+}
+int main(void)
+{
+    int n;
+    cin>>n;
+    fact(n);
+}
