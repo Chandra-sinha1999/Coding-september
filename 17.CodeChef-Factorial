@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll n;
+        cin>>n;
+        ll p=25;
+        ll k=n;
+        ll change=0;
+        while(1)
+        {
+            ll x=k/p;
+            if(x<1)
+            {
+                break;
+            }
+            change+=x;
+            p=p*5;
+        }
+        ll res=n/5;
+        res=res+change;
+        cout<<res<<endl;
+    }
+}
+//used to compute the logic
+/*#include<iostream>
+using namespace std;
+#define MAX 9999
+#define ll long long
+ll multiply(ll a[],ll n,ll a_size)
+{
+    ll rem=0;
+    for(ll i=0;i<a_size;i++)
+    {
+        ll prod=a[i]*n+rem;
+        a[i]=prod%10;
+        rem=prod/10;
+    }
+   while (rem)
+    {
+        a[a_size] = rem%10;
+        rem = rem/10;
+        a_size++;
+    }
+    return a_size;
+}
+void fact(ll n)
+{
+    ll a[MAX];
+    a[0]=1;
+    ll a_size=1;
+    for(ll i=2;i<=n;i++)
+        a_size=multiply(a,i,a_size);
+    ll count=0;
+    for(ll i=0;i<a_size;i++)
+        {
+            if(a[i]!=0)
+                break;
+            else
+                count++;
+        }
+        cout<<count<<endl;
+}
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+    ll n;
+    cin>>n;
+    fact(n);
+    }
+}
+*/
