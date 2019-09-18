@@ -1,0 +1,44 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+bool findout(ll *a,ll z,ll k,ll n)
+{
+    for(int i=1;i<=n;i+=2)
+    {
+        if(a[i]>=z)
+        {
+            if(a[i+1]<=k)
+                return true;
+        }
+    }
+    return false;
+}
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll x,y,k,n;
+        cin>>x>>y>>k>>n;
+        ll a[n*2];
+        ll z=x-y;
+        for(int i=1;i<=2*n;i+=2)
+        {
+            ll page;
+            cin>>page;
+            a[i]=page;
+            ll price;
+            cin>>price;
+            a[i+1]=price;
+        }
+        if(findout(a,z,k,2*n))
+        {
+            cout<<"LuckyChef"<<endl;
+        }
+        else
+        {
+            cout<<"UnluckyChef"<<endl;
+        }
+    }
+}
