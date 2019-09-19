@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll l,d,s,c,like,x=0;
+        cin>>l>>d>>s>>c;
+        if(d>1)
+        {
+            like=s+s*c;
+            d--;
+        }
+        else
+        {
+            if(l<=s)
+            {
+                x=1;
+            }
+        }
+        while(d>1)
+        {
+            like=like+like*c;
+            if(like>=l)
+            {
+                x=1;
+                break;
+            }
+            d--;
+        }
+        if(x==1)
+            cout<<"ALIVE AND KICKING"<<endl;
+        else
+            cout<<"DEAD AND ROTTING"<<endl;
+    }
+}
