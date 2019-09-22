@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+#define ll long long int
+int digits(int n)
+{
+    if(n==0)
+        return 6;
+    else if(n==1)
+        return 2;
+    else if(n==2||n==5||n==3)
+        return 5;
+    else if(n==4)
+        return 4;
+    else if(n==6||n==9)
+        return 6;
+    else if(n==7)
+        return 3;
+    else
+        return 7;
+}
+int main(void)
+{
+    ll t;
+    cin>>t;
+    while(t--)
+    {
+        ll a,b;
+        cin>>a>>b;
+        ll c=a+b;
+        ll sum=0;
+        while(c>0)
+        {
+            sum+=digits(c%10);
+            c=c/10;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
